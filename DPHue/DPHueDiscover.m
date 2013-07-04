@@ -7,7 +7,7 @@
 //
 //  https://github.com/danparsons/DPHue
 
-#import <CocoaAsyncSocket/GCDAsyncUdpSocket.h>
+#import "GCDAsyncUdpSocket.h"
 #import "DPHueDiscover.h"
 #import "DPJSONConnection.h"
 #import "DPHueNUPNP.h"

@@ -12,7 +12,7 @@
 #import "DPJSONConnection.h"
 #import "NSString+MD5.h"
 #import "WSLog.h"
-#import <CocoaAsyncSocket/GCDAsyncSocket.h>
+#import "GCDAsyncSocket.h"
 
 @interface DPHue ()
 @property (nonatomic, strong, readwrite) NSString *name;
@@ -93,6 +93,19 @@
 - (void)allLightsOn {
     for (DPHueLight *light in self.lights) {
         light.on = YES;
+        [light write];
+    }
+}
+
+- (void)allLightsOnToColor:(NSColor *)color {
+    for (DPHueLight *light in self.lights) {
+        light.on = YES;
+        light.hue = [NSNumber numberWithInt:([color hueComponent] * 65535 )];
+        NSLog(@"hue : %@",light.hue);
+        light.saturation = [NSNumber numberWithInt:([color saturationComponent] * 255)];
+        NSLog(@"saturation : %@",light.saturation);
+        light.brightness = [NSNumber numberWithInt:([color brightnessComponent] * 255)];
+        NSLog(@"brightness : %@",light.brightness);        
         [light write];
     }
 }

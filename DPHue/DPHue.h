@@ -8,7 +8,7 @@
 //  https://github.com/danparsons/DPHue
 
 #import <Foundation/Foundation.h>
-#import <CocoaAsyncSocket/GCDAsyncSocket.h>
+#import "GCDAsyncSocket.h"
 #import "DPJSONSerializable.h"
 
 @interface DPHue : NSObject <DPJSONSerializable, NSCoding, GCDAsyncSocketDelegate>
@@ -86,6 +86,7 @@
 // Turns on all lights the controller is aware of
 // via [DPHueLight setOn:ON]
 - (void)allLightsOn;
+- (void)allLightsOnToColor:(NSColor *)color;
 
 // Writes the state of all lights to the controller, even if no changes
 // have been made. Helpful for changing from one complete state to another.

@@ -14,7 +14,7 @@
 // https://github.com/danparsons/QuickHue
 
 #import <Foundation/Foundation.h>
-#import <CocoaAsyncSocket/GCDAsyncUdpSocket.h>
+#import "GCDAsyncUdpSocket.h"
 
 // Conforming to this protocol allows a UI to be informed if a
 // Hue controller was found.
